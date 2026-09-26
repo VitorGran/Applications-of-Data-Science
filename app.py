@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-from datetime import datetime
+import datetime
 
 st.set_page_config(page_title="Cadastro de Pacientes", layout="centered")
 st.title("Cadastro de Pacientes")

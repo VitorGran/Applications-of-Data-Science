@@ -12,7 +12,12 @@ if "pacientes" not in st.session_state:
 
 with st.form("cadastro", clear_on_submit=True):
     nome = st.text_input("Nome do paciente")
-    data_nasc = st.date_input("Data de nascimento", datetime.date(2019, 7, 6))
+    data_nasc = st.date_input(
+        "Data de nascimento",
+        value=datetime.date.today(),
+        min_value = datetime.date(1900, 1, 1),
+        max_value = datetime.date.today()
+    )
     email = st.text_input("E-mail")
     idade = st.number_input("Idade", min_value=0, max_value=120, step=1)
     convenio = st.selectbox(

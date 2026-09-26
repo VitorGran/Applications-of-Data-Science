@@ -33,7 +33,7 @@ if enviado:
         "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "nome": nome,
         "data_nasc": data_nasc,
-        "email": email,
+        "e-mail": email,
         "idade": idade,
         "convenio": convenio,
         "prioridade": prioridade,

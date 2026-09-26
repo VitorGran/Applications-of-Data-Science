@@ -7,11 +7,13 @@ st.title("Cadastro de Pacientes")
 
 if "pacientes" not in st.session_state:
     st.session_state.pacientes = pd.DataFrame(
-        columns=["timestamp", "nome", "idade", "convenio", "prioridade", "motivo"]
+        columns=["timestamp", "nome", "data_nasc", "e-mail", "idade", "convenio", "prioridade", "motivo"]
     )
 
 with st.form("cadastro", clear_on_submit=True):
     nome = st.text_input("Nome do paciente")
+    data_nasc = st.date_input("Data de nascimento", datetime.date(2019, 7, 6))
+    email = st.text_input("E-mail")
     idade = st.number_input("Idade", min_value=0, max_value=120, step=1)
     convenio = st.selectbox(
         "Convênio",
@@ -24,8 +26,12 @@ with st.form("cadastro", clear_on_submit=True):
 if enviado:
     nova_linha = {
         "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
-        "nome": nome, "idade": idade,
-        "convenio": convenio, "prioridade": prioridade,
+        "nome": nome,
+        "data_nasc": data_nasc,
+        "email": email,
+        "idade": idade,
+        "convenio": convenio,
+        "prioridade": prioridade,
         "motivo": motivo,
     }
     st.session_state.pacientes = pd.concat(

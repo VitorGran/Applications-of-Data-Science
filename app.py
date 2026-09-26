@@ -30,7 +30,7 @@ with st.form("cadastro", clear_on_submit=True):
 
 if enviado:
     nova_linha = {
-        "timestamp": datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
+        "timestamp": datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S"),
         "nome": nome,
         "data_nasc": data_nasc,
         "email": email,
